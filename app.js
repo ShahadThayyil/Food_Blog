@@ -5,9 +5,12 @@ const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
+const helmet = require("helmet");
+const cors = require('cors')
 const app = express();
 const port = process.env.PORT || 3000;
-
+app.use(helmet());
+app.use(cors());
 require('dotenv').config();
 dbConnect();
 app.use(express.urlencoded({extended:true}));
