@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title != 'undefined' ? title: 'Cooking Blog - Made with node.js' %></title>
+    <link rel="stylesheet" href="/css/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body style="background-image: url('/img/i-like-food.svg'); width: 100%;">
+    <div class="container mx-auto px-8 py-6 bg-white shadow-lg">
+
+        <header class="flex flex-wrap items-center justify-between py-3 mb-4 border-b border-b-gray-400">
+            <a href="/" class="flex items-center mb-2 text-gray-800 text-decoration-none">
+                <img src="/img/logo.svg" width="229" height="68" alt="Cooking Blog - Made with Node.js">
+            </a>
+    
+            <ul class="flex space-x-4 mb-2 justify-center">
+                <li><a href="/" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                <li><a href="/about" class="text-gray-600 hover:text-gray-800">About</a></li>
+                <li><a href="/submit-recipe" class="text-gray-600 hover:text-gray-800">Submit</a></li>
+                <li><a href="/contact" class="text-gray-600 hover:text-gray-800">Contact</a></li>
+            </ul>
+    
+            <div class="text-right">
+                <form method="POST" action="/search" class="flex">
+                    <input type="search" name="searchTerm" class="form-input  focus:outline-none border border-gray-400 rounded-l-md py-2 px-4" placeholder="Search..." aria-label="Search">
+                    <button type="submit" class="bg-blue-500 text-white rounded-r-md px-4 py-2 hover:bg-blue-600">Search</button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <%- body %>
+        </main>
+        <footer class="py-5">
+            <p>Build by Shahad</p>
+       </footer>
+    </div>
+  
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="/js/script.js"></script>
+</body>
+</html>

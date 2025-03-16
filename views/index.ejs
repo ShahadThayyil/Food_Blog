@@ -1,0 +1,170 @@
+<div class="flex flex-col lg:flex-row-reverse items-center gap-5 py-4 mb-4">
+    <div class="w-full lg:w-1/2">
+      <img src="/img/hero-image.png" width="607" height="510" class="block mx-auto w-full h-auto" loading="lazy" alt="Cooking With Node.js">
+    </div>
+  
+    <div class="w-full lg:w-1/2">
+      <h1 class="text-3xl font-bold mb-3">Huge selection of delicious recipe ideas</h1>
+      <p class="text-lg">
+        Explore our huge selection of delicious recipe ideas including easy desserts, delicious vegan and vegetarian dinner ideas, gorgeous pasta recipes, quick bakes, family-friendly meals, and gluten-free recipes.
+      </p>
+  
+      <div class="flex gap-2 mt-4">
+        <a href="/explore-latest" class="bg-blue-600 text-white rounded-lg px-4 py-2 text-lg hover:bg-blue-700">Explore Latest</a>
+        <a href="/explore-random" class="border border-gray-300 text-gray-700 rounded-lg px-4 py-2 text-lg hover:bg-gray-100">Show Random</a>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="grid grid-cols-2 lg:grid-cols-6 gap-2 lg:gap-3 py-4">
+    <% if (categories != '') { %>
+      <% categories.forEach(category => { %>
+        <a href="/categories/<%= category.name %>" class="col text-center category__link hover:text-blue-600 duration-200 ease-in-out">
+          <div class="category__img shadow">
+            <img src="img/<%= category.image %>" alt="<%= category.name %>" loading="lazy" class="w-full h-24 rounded-2xl hover:scale-105 duration-300 ease-in-out">
+          </div>
+          <div class="pt-1 font-semibold"><%= category.name %></div>
+        </a>
+      <% }) %>
+    <% } %>
+ 
+
+    <a href="/categories" class="col text-center category__link  hover:text-blue-600 duration-200 ease-in-out">
+      <div class="category__img shadow">
+        <img src="img/view-all.jpg" alt="View All Categories" loading="lazy" class="w-full h-24 rounded-2xl hover:scale-105 duration-300 ease-in-out">
+      </div>
+      <div class="pt-1 font-semibold">View All</div>
+    </a>
+  </div>
+
+  <section class="py-4">
+    <div class="flex mb-4 items-center">
+      <h2 class="text-2xl font-bold">Latest Recipes</h2>
+      <a href="/explore-latest" class="ml-auto text-blue-500 hover:underline">View More</a>
+    </div>
+  
+    <div class="grid grid-cols-2 gap-2 lg:grid-cols-5 lg:gap-3 ">
+  
+      <% if(food != '') { %>
+        <% food.latest.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+          <div class="category__img category__img--large shadow">
+            <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy" class="hover:scale-105 duration-300 ease-in-out rounded">
+          </div>
+          <div class="pt-3 font-semibold"><%= recipe.name %></div>
+        </a>
+        <% }) %>
+      <% } else { %>
+        <p>No items found.</p>
+      <% } %>
+    </div>
+  </section>
+
+
+
+  
+  <section class="py-4">
+    <div class="flex mb-4 items-center">
+      <h2 class="text-2xl font-bold">Thai Recipes</h2>
+      <a href="/categories/Thai" class="ml-auto text-blue-500 hover:underline">View More</a>
+    </div>
+  
+    <div class="grid grid-cols-2 gap-2 lg:grid-cols-5 lg:gap-3 ">
+  
+      <% if(typeof food.thai !== 'undefined' && food.thai.length > 0) { %>
+        <% food.thai.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+          <div class="category__img category__img--large shadow">
+            <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy" class="hover:scale-105 duration-300 ease-in-out rounded">
+          </div>
+          <div class="pt-3 font-semibold"><%= recipe.name %></div>
+        </a>
+        <% }) %>
+      <% } else { %>
+        <p>No items found.</p>
+      <% } %>
+    </div>
+  </section>
+  <!-- american -->
+  <section class="py-4">
+    <div class="flex mb-4 items-center">
+      <h2 class="text-2xl font-bold">American Recipes</h2>
+      <a href="/categories/American" class="ml-auto text-blue-500 hover:underline">View More</a>
+    </div>
+  
+    <div class="grid grid-cols-2 gap-2 lg:grid-cols-5 lg:gap-3 ">
+  
+      <% if(food.american != '') { %>
+        <% food.american.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+          <div class="category__img category__img--large shadow">
+            <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy" class="hover:scale-105 duration-300 ease-in-out rounded">
+          </div>
+          <div class="pt-3 font-semibold"><%= recipe.name %></div>
+        </a>
+        <% }) %>
+      <% } else { %>
+        <p>No items found.</p>
+      <% } %>
+    </div>
+  </section>
+  <!-- chinese -->
+  <section class="py-4">
+    <div class="flex mb-4 items-center">
+      <h2 class="text-2xl font-bold">Chinese Recipes</h2>
+      <a href="/categories/Chinese" class="ml-auto text-blue-500 hover:underline">View More</a>
+    </div>
+  
+    <div class="grid grid-cols-2 gap-2 lg:grid-cols-5 lg:gap-3 ">
+  
+      <% if(food.chinese != '') { %>
+        <% food.chinese.forEach(function(recipe, index){ %>
+        <a href="/recipe/<%= recipe._id %>" class="col text-center category__link">
+          <div class="category__img category__img--large shadow">
+            <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy" class="hover:scale-105 duration-300 ease-in-out rounded">
+          </div>
+          <div class="pt-3 font-semibold"><%= recipe.name %></div>
+        </a>
+        <% }) %>
+      <% } else { %>
+        <p>No items found.</p>
+      <% } %>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="px-4 py-5 my-5 text-center">
+    <img src="/img/publish-recipe.png" class="mx-auto mb-4 w-full max-w-md" alt="Publish your recipe for FREE today" loading="lazy">
+    <h1 class="text-3xl font-bold">Publish your recipe for FREE today</h1>
+    <div class="max-w-lg mx-auto">
+      <p class="text-lg mb-4">Publish your Recipe in front of thousands of people for free.</p>
+      <div class="flex justify-center">
+        <a href="/submit-recipe" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">Submit Recipe</a>
+      </div>
+    </div>
+  </section>

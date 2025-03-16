@@ -1,0 +1,76 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="text-4xl font-bold">Submit Your Recipe</h1>
+    <div class="max-w-2xl mx-auto mt-4">
+      <p class="text-lg text-gray-600">Share your amazing recipes with thousands of web developers across the world. Fill out our form to get started.</p>
+    </div>
+</div>
+
+<div class="flex justify-center">
+    <div class="w-full max-w-2xl">
+        <% if(infoSubmitObj != '') { %>
+            <div class="w-full bg-green-100 text-green-800 px-4 py-3 rounded mb-4">
+                <%= infoSubmitObj %>
+            </div>
+        <% } %>
+
+        <% if(infoErrorsObj != '') { %>
+            <div class="w-full bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
+                <%= infoErrorsObj[0].message %>
+            </div>
+        <% } %>
+
+        <form action="/submit-recipe" enctype="multipart/form-data" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="space-y-4">
+                <div>
+                    <label for="email" class="block text-gray-700 font-medium">Email</label>
+                    <input type="email" name="email" id="email" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+
+                <div>
+                    <label for="name" class="block text-gray-700 font-medium">Recipe Name</label>
+                    <input type="text" name="name" id="name" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                </div>
+
+                <div>
+                    <label for="description" class="block text-gray-700 font-medium">Description</label>
+                    <textarea name="description" id="description" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" rows="4"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-medium">Ingredients</label>
+                    <small class="text-gray-500">Example: Ice</small>
+                    <div class="ingredientList mt-2">
+                        <div class="ingredeintDiv mb-2">
+                            <input type="text" name="ingredients" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" id="addIngredientsBtn">+ Ingredient</button>
+                </div>
+
+                <div>
+                    <label for="category" class="block text-gray-700 font-medium">Select Category</label>
+                    <select name="category" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <option selected>Select Category</option>
+                        <option value="Thai">Thai</option>
+                        <option value="American">American</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Mexican">Mexican</option>
+                        <option value="Indian">Indian</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="image" class="block text-gray-700 font-medium">Product Image</label>
+                    <input type="file" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" name="image" accept="image/*">
+                </div>
+
+                <div>
+                    <button type="submit" class="w-full px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Submit Recipe</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
