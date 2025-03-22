@@ -126,4 +126,6 @@ exports.submitRecipeOnPost = async(req,res)=>{
    
 }
 
-
+exports.aboutPage = (req,res)=>{
+    res.render('about',{title:'Cooking Blog - About Us'})
+}
